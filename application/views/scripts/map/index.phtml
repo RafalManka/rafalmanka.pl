@@ -1,0 +1,133 @@
+<?php 
+echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/map.css'); 
+?>
+<script 
+type="text/javascript" src="
+<?php $this->baseUrl().'/';?>js/jquery.js"></script>
+<script	
+src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=&sensor=false" 
+type="text/javascript"></script>
+<script type="text/javascript">
+
+function initialize()
+{	
+		if (GBrowserIsCompatible()) {
+	       var map = new GMap2(document.getElementById("map_canvas"));
+	       map.setCenter(new GLatLng(52.219361,21.097891), 18);
+			
+			var bounds = new GLatLngBounds();
+
+	        map.setUIToDefault();	        
+
+	        var baseIcon = new GIcon(G_DEFAULT_ICON);
+	        baseIcon.shadow = "http://www.google.com/mapfiles/shadow50.png";
+	        baseIcon.iconSize = new GSize(20, 34);
+	        baseIcon.shadowSize = new GSize(37, 34);
+	        baseIcon.iconAnchor = new GPoint(9, 34);
+	        baseIcon.infoWindowAnchor = new GPoint(9, 2);
+
+	        
+	        function createMarker(point, index, dto)
+			{
+	        	var letter = String.fromCharCode("A".charCodeAt(0) + index);
+	            var letteredIcon = new GIcon(baseIcon);
+	            letteredIcon.image = "http://www.google.com/mapfiles/marker" + letter + ".png";
+
+
+	            markerOptions = { icon:letteredIcon };
+	            marker = new GMarker(point, markerOptions);
+
+
+	            GEvent.addListener(marker, "click", function() 
+						{					
+					marker.openInfoWindowHtml(
+							 "<div class=\"places\"><div class=\"titlePlaces\">Miejsce zamieszkania</div><div class=\"cityPlaces\">Mazowieckie</div><div class=\"addressPlaces\">ul. Manteuffla 1/12</div><div class=\"addressPlaces\">03-887 Warszawa</div><div class=\"addressPlaces\">tel.(22) 671 02 84</div></div><div class=\"thumbnail\"></div>"
+							 );
+					});
+				return marker;
+				}			
+		}		
+		
+		var latlng = new GLatLng(52.219361,21.097891);
+		map.addOverlay(createMarker(latlng,0,{}));		
+		
+		$(".places").click(function(){
+			map.removeOverlay(marker);
+			lang = parseFloat($(this).attr('lng'));
+			lat = $(this).attr('lat');
+			addLocation(lang,lat);
+			shopName = $(this).find('.titlePlaces').html();
+			cityName = $(this).find('.cityPlaces').html();
+			addressName = $(this).find('.addressPlaces').html();
+			
+			$("#placesHolder").find('.places').removeClass('active');
+			openMarker();
+			$(this).addClass('active');
+		})		
+		
+			function addLocation(lang,lat) 
+			{
+					var point = new GLatLng(lang, lat);
+					
+					//lang -= 1.05;
+					console.log(lang);
+					marker = new GMarker(point);
+					map.addOverlay(marker);
+					var location = new GLatLng(lang, lat);
+					map.setCenter(location, 16);
+					bounds.extend(marker.getPoint());
+					
+	            GEvent.addListener(marker, "click", function() 
+						{
+							openMarker();
+					});
+			}
+				
+			function openMarker()
+			{
+				marker.openInfoWindowHtml(
+					"<div class=\"places\"><div class=\"titlePlaces\">"+shopName+"</div><div class=\"cityPlaces\">"+cityName+"</div><div class=\"addressPlaces\">"+addressName+"</div><div class=\"addressPlaces\">03-984 Warszawa</div><div class=\"addressPlaces\">tel.(22) 671 02 84</div></div><div class=\"thumbnail\"></div>"
+				);
+			}
+				
+			function zoomToBounds() {
+					map.setCenter(bounds.getCenter());
+					
+					map.setZoom(7); // map.getBoundsZoomLevel(bounds)-1
+				}
+}
+</script>
+
+<div id="bodyDivider"></div>
+<body onload="initialize()" onunload="GUnload()">
+	<div id="salony_holder">
+		<div id="returnMap"></div>
+		<div id="placesWrapper">
+			<div id="placesHolder">
+				<div lng="52.219361" lat="21.097891" class="places">
+					<div class="titlePlaces">Tutaj mieszkam</div>
+					<div class="cityPlaces">Mazowieckie</div>
+					<div class="addressPlaces">ul. Manteuffla 1/12</div>
+					<div class="addressPlaces">03-887 Warszawa</div>
+					<div class="addressPlaces"></div>
+				</div>
+				<div lng="50.111593" lat="18.322256" class="places">
+					<div class="titlePlaces">Stąd pochodzę</div>
+					<div class="cityPlaces">Śląsk</div>
+					<div class="addressPlaces">ul. Rybnicka 24</div>
+					<div class="addressPlaces">47-435 Żytna</div>
+					<div class="addressPlaces">tel.(32) 42 78 220</div>
+				</div>
+				<div lng="52.176879" lat="21.074932" class="places">
+					<div class="titlePlaces">Tutaj pracuję</div>
+					<div class="cityPlaces">Mazowieckie</div>
+					<div class="addressPlaces">Nowoczesna Firma</div>
+					<div class="addressPlaces">ul. Wiertnicza 141</div>
+					<div class="addressPlaces">02-952 Warszawa</div>
+					<div class="addressPlaces">tel. 609 020 123</div>
+				</div>				
+			</div>
+		</div>
+		<div id="map_canvas"></div>
+	</div>
+</body>

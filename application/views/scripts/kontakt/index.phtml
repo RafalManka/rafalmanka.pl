@@ -1,0 +1,37 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/kontakt.js"></script>
+
+<?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/kontakt.css'); ?>
+
+<div id="formContainer">
+	<h1>Formularz kontaktowy</h1>
+	<p>
+		zapraszam do kontaktu przez formularz poniżej. 
+		Jeżeli nie chcesz czekać na odpowiedź, 
+		zawsze możesz się ze mną skontaktować,
+		dzwoniąc pod numer telefonu <b>+48 609 020 123</b> 
+	</p>
+	<form 
+		method="post" 
+		id="fomKontakt" 
+		class="jqtransform">		
+		<div class="formRow">
+			<label for="field1">Email:</label>
+				<input 
+					type="text" 
+					name="field1"
+					id="field1" 
+					class="textField required email" />
+		</div>		
+		<div class="formRow">
+			<label for="field3">Wiadomość:</label>
+			<textarea name="field3" id="field3" rows="5" cols="40"
+				class="textArea required"></textarea>
+		</div>
+		<div class="formRow">
+			<input type="submit" value="Wyślij." id="submit" />
+		</div>
+	</form>
+</div>
+
+<div id="output">Wait while your order is being processed...</div>

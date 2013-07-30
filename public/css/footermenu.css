@@ -1,0 +1,81 @@
+@CHARSET "UTF-8";
+
+#footerMenuHolder{
+	padding-top: 93px;
+	width: 1000px;	
+	position: relative;
+}
+
+#footerMenu{ 
+	width: 1000px;
+	background: url("../img/footer_bg.jpg") repeat-x #192428;
+	min-height: 300px;
+}
+	
+#policyTerms{
+	padding-top:100px;
+	width: 100%;
+	text-align: center;	
+}
+
+#policyTerms li {
+	display:inline;
+	
+}
+
+#policyTerms a:link,
+#policyTerms a:visited {	
+	padding: 0px 10px 0px 10px;
+	width: auto;
+	text-decoration: none;
+	color: #2d8383;
+}
+
+#policyTerms a:HOVER{
+	color: #999999;
+}
+
+#footernav {
+	margin-left: 20px;	
+	position: absolute;
+	}
+	
+#footernav li {
+	display: inline;	
+}
+
+.footer-nav-holder a:LINK, .footer-nav-holder a:VISITED{
+ text-decoration: none;
+ color: #9FB400;
+}
+
+.footer-nav-left{
+	float:left;
+	background: url("../img/readon-l.png") no-repeat;
+	width: 8px;
+	margin-top: 20px;	
+	height: 40px;	
+}
+
+.footer-nav-center{
+	text-align: center;
+	font-size:14px;	
+	float: left;
+	background: url("../img/readon-m.png") repeat-x;	
+	width:110px;
+	padding-top: 10px;
+	padding-bottom: 17px;
+	margin-top: 20px;	
+	height: 10px;
+}
+
+.footer-nav-right{	
+	float: left;	
+	background: url("../img/readon-r.png") no-repeat;
+	width: 8px;
+	margin-top: 20px;	
+	height: 40px;
+	
+	margin-right:10px;	
+}
+

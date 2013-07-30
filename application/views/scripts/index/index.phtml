@@ -1,0 +1,52 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/kontakt.js"></script>
+
+<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/index.css');?>
+
+<div id="postWrapper">
+    <div id="postContainer">
+        <?php foreach($this->posts as $posts) : ?>
+            <div class="postContainer">
+                <div class="postTitle">
+                    <?php echo $posts->Title;?>
+                </div>
+
+                <div class="postContent">
+                    <?php echo $posts->Content;?>
+                </div>
+                <div class="postAuthor">-
+                <?php echo $posts->Author;?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+<div id="side_news">
+    <div id="pictureContainerWrapper">
+        <div id="pictureContainer"></div>
+    </div>
+</div>
+<div id="lovedBy">
+    <div id="whoTrust">zaufali mi:</div>
+    <div class="company">
+        <a href="http://www.ad-media.pl" target="_blank">
+            <img alt="company1" src="img/pastProjects/ad-media-grey.png" />
+        </a>
+    </div>
+    <div class="company">
+        <a href="http://www.mail-box.pl" target="_blank">
+            <img alt="company2" src="img/pastProjects/mail-box.png" />
+        </a>
+    </div>
+    <div class="company">
+        <a href="http://www.pxlstudio.pl" target="_blank">
+            <img alt="company2" src="img/pastProjects/pxl.png" />
+            </a>
+    </div>
+    <div class="company">
+        <a href="http://www.nf.pl" target="_blank">
+            <img alt="company2" src="img/pastProjects/nf_logo.png" />
+            </a>
+    </div>
+</div>

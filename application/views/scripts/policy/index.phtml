@@ -1,0 +1,21 @@
+<?php 
+echo $this->headLink()
+	->prependStylesheet($this
+							->baseUrl().'/css/policy.css'); 
+?>
+<div id="whiteContainer">
+	<div id="insideContainer">
+	
+		<?php foreach ($this->policy as $policy) : ?>
+		
+		<h1><?php echo $this->escape($policy->title); ?></h1>
+		<p>
+		<?php echo $this->escape($policy->lead); ?></p>
+		<br/>
+		<h3><?php echo $this->escape($policy->subtitle); ?></h3>
+		<p><?php echo $this->escape($policy->content); ?></p>
+		
+		<?php endforeach; ?>
+		
+	</div>
+</div>

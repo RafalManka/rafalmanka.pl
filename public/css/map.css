@@ -1,0 +1,81 @@
+@CHARSET "UTF-8";
+
+
+#placesHolder {
+	position:relative;
+	width:800px;
+	height:100px;
+	padding: 10px 0px 0px 30px;
+}
+
+
+.places {
+	position:relative;
+	color: black;
+	font-size:11px;
+	width: 170px;
+	height: 100px;
+	float:left;
+	cursor:pointer;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#bodyDivider{
+	height:70px;
+}	
+	
+#salony_holder {
+	width: 1000px;
+	
+}
+
+.places{
+	color:white;
+}
+
+.places:hover{
+	color: #D3D3D3;
+}
+
+#map_canvas{
+	margin: 50px;
+	padding-bottom: 50px;
+	width: 900px;
+	height: 500px;
+}
+
+#map_canvas .titlePlaces,#map_canvas .cityPlaces,#map_canvas .addressPlaces{
+	color: black;
+}
+
+#placesHolder .active {
+	top:-10px;
+	color: #D3D3D3;
+}
+
+.titlePlaces{
+	font-weight: bold;
+	font-size: 12px;
+	padding-bottom: 5px;	
+}
+
+.cityPlaces{
+	font-style: italic;
+	padding-bottom: 10px;
+}
+
+.thumbnail{	
+	width:180px;
+	height:130px;
+	float:right;
+	background: url("../img/map_thumbnail.png") no-repeat;	
+}
+
+#mapBody{
+	outline: 1px solid red;
+	float: left;	
+
+}

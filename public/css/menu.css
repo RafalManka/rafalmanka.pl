@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+
+#nav {	
+	background: url(../img/menu-bg.png) 0 0 repeat-x;
+	float: left;
+	width: 100%;	
+	height: 80px;
+		
+}
+
+#nav h3{
+
+	text-decoration: none;
+	font: normal normal 700 14px/18px Arial;
+	text-shadow: -1px -1px black;
+	padding: 7px 0px 0px 0px;
+}
+
+#nav p{
+
+	text-align: center;
+	text-decoration: none;
+	font: normal normal 700 9px/18px Arial;
+	text-shadow: -1px -1px black;
+	height: 15px;
+}
+
+#nav li {
+	display: inline;
+	padding: 0;
+	margin: 0;
+}
+
+#nav a:link,
+#nav a:visited {
+	margin-top:10px;
+	text-decoration: none;
+	background: none;
+	padding: 0px 40px 10px 10px;	
+	float: left;
+	width: auto;
+	color: #70a4b2;	
+	
+}
+
+#nav a:active,
+#nav a:hover,
+#nav a:focus {
+	color: #BCD402;
+	background: url(../img/menu-dro.png) 0 0 repeat-x;
+}

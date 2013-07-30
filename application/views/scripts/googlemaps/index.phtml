@@ -1,0 +1,7 @@
+<body onload="document.forms.geo.submit();">
+	<script language="JavaScript" src="http://j.maxmind.com/app/geoip.js"></script>
+	<form name="geo" method="post" action="<?php echo $this->url(array('controller'=>'googlemaps','action'=>'map'));?>">
+		<script language="JavaScript">document.write('<input type="hidden" name="geoip_latitude" value="'+geoip_latitude()+'" />');</script>
+		<script language="JavaScript">document.write('<input type="hidden" name="geoip_longitude" value="'+geoip_longitude()+'" />');</script>
+	</form>
+</body>

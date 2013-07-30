@@ -1,0 +1,129 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('Rafal Manka Homepage');
+echo $this->doctype();
+?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<?php echo $this->headMeta(); ?>
+<?php echo $this->headTitle(); ?>
+<?php echo $this->headLink()
+	->appendStylesheet($this->baseUrl().'/css/global.css'); ?>
+<?php echo $this->headLink()
+	->appendStylesheet($this->baseUrl().'/css/menu.css'); ?>
+<?php echo $this->headLink()
+	->appendStylesheet($this->baseUrl().'/css/footermenu.css'); ?>
+<script type="text/javascript" scr="/js/analyticstracking.js"></script>
+</head>
+<body>
+	<div id="big_wrapper">
+		<div id="top_header">
+		
+			<div id="leftBG"></div>
+			<div id="rightBG"></div>
+			
+			<a href="<?php echo $this->baseUrl();?>">
+			<div id="logo"></div></a>
+			
+				<div id="slogan">
+					<a href="https://plus.google.com/102004976347913321884/?rel=author">Mój profil Google+</a>
+				</div>
+			
+		</div>
+
+		<div id="section_container_bottom">
+		
+			<div id="section_container_top"></div>	
+					
+			<div id="section_container">
+			<ul id="nav">
+				<li id="nav-home"> 
+					<a href="<?php echo $this->url(
+						array('controller'=>'index', 'action'=>'index')); ?>">	
+						<h3>Home</h3><p>strona główna</p></a>
+				</li>
+				<li id="nav-kontakt">
+				 		<a href="<?php echo $this->url(
+				 		array('controller'=>'Kontakt', 'action'=>'index')); ?>">
+				 		
+				 		<h3>Kontakt</h3><p>poznajmy się</p></a>				
+				</li>
+				<li id="nav-googlemaps">
+						<a href="<?php echo $this->url(
+						array('controller'=>'Map', 'action'=>'index')); ?>">
+						<h3>Mapa</h3><p>gdzie mnie mozna znaleść</p></a>				
+				</li>			
+			</ul>
+			<?php echo $this->layout()->content; ?>
+			</div>
+		</div>
+		
+<div id="footer">
+		 
+		 <div id="footerLeft"></div>
+		 <div id="footerRight"></div>
+			
+<div id="footerMenuHolder">
+	<div id="footerMenu">
+		<ul id="footernav">
+				<li class="footer-nav-holder"> 
+					
+						<a href="<?php echo $this->url(
+								array('controller'=>'index', 
+								'action'=>'index')); ?>">
+						<div class="footer-nav-left"></div>
+						<div class="footer-nav-center">
+								
+								Home</div>
+						<div class="footer-nav-right"></div></a>
+				
+					
+				</li>
+				<li class="footer-nav-holder">
+						
+					<a href="<?php echo $this->url(
+				 		array('controller'=>'Kontakt', 
+				 				'action'=>'index')); ?>">
+				 		<div class="footer-nav-left"></div>
+						<div class="footer-nav-center">					
+				 			Kontakt
+				 		</div>
+						<div class="footer-nav-right"></div>
+					</a>
+				 		
+				 					
+				</li>
+				<li class="footer-nav-holder">
+						
+					<a href="<?php echo $this->url(
+						array('controller'=>'Map', 'action'=>'index')); ?>">
+						
+						<div class="footer-nav-left"></div>
+						<div class="footer-nav-center">Google Maps</div>
+						<div class="footer-nav-right"></div>					
+					</a>
+								
+				</li>
+			
+			</ul>
+			
+			<ul id="policyTerms">
+				<li id="footer-nav-policy"> 
+					<a href="<?php echo $this->url(
+						array('controller'=>'policy', 'action'=>'index')); ?>">	
+						Polityka prywatnosci</a> |
+				</li>
+				<li id="footer-nav-terms">
+				 		<a href="<?php echo $this->url(
+				 		array('controller'=>'terms', 'action'=>'index')); ?>">
+				 		Warunki korzystania ze strony</a>				
+				</li>			
+			</ul>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+

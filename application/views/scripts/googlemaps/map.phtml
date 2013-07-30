@@ -1,0 +1,44 @@
+
+
+<?php
+
+$lat = $_POST['geoip_latitude'];
+$lng = $_POST['geoip_longitude'];
+
+define('DB_HOST','localhost');
+define('DB_USER','root');
+define('DB_PASS','');
+define('DB_NAME','RafalManka');
+
+$connection = mysql_connect(DB_HOST,DB_USER,DB_PASS) or die(mysql_error());
+mysql_select_db(DB_NAME) or die (mysql_error());
+
+$pobierz = mysql_query("SELECT id, nazwa, lat, lng, ( 6371 * acos( cos( radians($lat) ) * cos( radians( lat ) ) *
+		cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) )
+		AS distance FROM googlemaps HAVING distance < 10000 ORDER BY distance LIMIT 0 , 1 ");
+
+while($dane = mysql_fetch_array($pobierz))
+{
+	$lat = $dane['lat'];
+	$lng = $dane['lng'];
+}
+?>
+	<input type="submit" value="1" class="shopID">
+	<input type="submit" value="2" class="shopID">
+
+	<div id="returnMap">
+		<iframe id="googleMap" width="800" height="900" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+		src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=<?php echo $lat.','.$lng ?>&amp;aq=&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+</div>
+<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/jquery.js"></script>
+
+<script type="text/javascript">
+	$('.shopID').click(function() {
+		var whichShop = $(this).val();
+		$.post('<?php echo $this->url(array('controller'=>'googlemaps','action'=>'process')); ?>', {
+			whichShop : whichShop
+		}, function(data) {
+			$('#returnMap').html(data);
+		});
+	});
+</script>

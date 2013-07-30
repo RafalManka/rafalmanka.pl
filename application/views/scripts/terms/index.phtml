@@ -1,0 +1,22 @@
+<?php 
+echo $this->headLink()
+	->prependStylesheet($this
+							->baseUrl().'/css/terms.css'); 
+?>
+<div id="whiteContainer">
+	<div id="insideContainer">
+	
+	<?php foreach ($this->terms as $term) :?> 
+	
+	<h1><?php echo $this->escape($term->title); ?></h1>
+	<br/>
+	<p><?php echo $this->escape($term->lead); ?><p>
+	<br/>
+	<h3><?php echo $this->escape($term->subtitle); ?></h3>	
+	<br/>
+	<p><?php echo $this->escape($term->terms); ?></p>
+	
+	<?php endforeach; ?>
+		
+	</div>
+</div>
